@@ -15,7 +15,7 @@ int MAX = 100;
 //este metodo carga las tareas en el nodo
 void cargarTareas(TAREA **totalTareas, int cantidadTareas)
 {
-    char auxiliarDescripcion[100];//esta variable recoge un ingreso por teclado de un string
+    char auxiliarDescripcion[100];//esta variable recoge un  ingreso por teclado de un string
     for (int i = 0; i < cantidadTareas; i++)
     {
         totalTareas[i] = (Tarea*)malloc(sizeof(Tarea));//reservo memoria para la tarea
