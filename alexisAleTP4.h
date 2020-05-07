@@ -65,7 +65,7 @@ void estadoTareas(TAREA **tareasCargadas, TAREA **tareasRealizadas, int cantidad
             scanf("%s",&respuesta);
             fflush(stdin);
             //respuesta[3] = tolower(respuesta[3]); -> no me funciona el tolower
-            printf("%s\n",respuesta);
+            //printf("%s\n",respuesta);
         } while(strcmp(respuesta, "si") and strcmp(respuesta, "no") and strcmp(respuesta, "SI") and strcmp(respuesta, "N0") 
             and strcmp(respuesta, "n") and strcmp(respuesta, "s") and strcmp(respuesta, "N") and strcmp(respuesta, "S") 
             and strcmp(respuesta, "1") and strcmp(respuesta, "0"));
@@ -86,5 +86,26 @@ void estadoTareas(TAREA **tareasCargadas, TAREA **tareasRealizadas, int cantidad
         }
     }
 }
-
+//5. En un nuevo branch implemente una función de búsqueda de tares por nro. de
+//id de nombre BuscarTarea. La misma devuelve la tarea solicitada
+TAREA *buscarTareaID(TAREA **tareasP, int cantidadDeTareas)//este metodo busca por id las tareas realizadas
+{
+    int auxiliar;//esta variable sirve para ingresar el ID q se quiere buscar
+    do
+    {
+        printf("POR FAVOR INGRESE EL ID DE LA TAREA QUE DESEA BUSCAR:\n");
+        scanf("%d",&auxiliar);
+    fflush(stdin); 
+    } while (auxiliar > cantidadDeTareas);
+    for (int i = 0; i < cantidadDeTareas; i++)
+    {
+        if (tareasP[i] != NULL)
+        {
+            if (tareasP[i]->TareaID == auxiliar){
+                return tareasP[i];
+            }              
+        }
+    }
+    return NULL;
+}
 #endif

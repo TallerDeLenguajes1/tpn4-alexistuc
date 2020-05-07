@@ -49,6 +49,7 @@ int main()
     int cantidadTareas = 0;//indica la cantidad de tareas ingresadas por el usuario
     TAREA **TareasPendientes = NULL;
     TAREA **TareasRealizadas = NULL;
+    TAREA *busquedaPorID = NULL;//este puntero recoge el valor que devuelve la funcion de busqueda por ID
     //1. Desarrollar una interfaz por consola donde se solicite al usuario la cantidad de Tareas a cargar.
     printf("POR FAVOR INDIQUE LA CANTIDAD DE TAREAS QUE SE DEBEN REALIZAR:\n");
     scanf("%d",&cantidadTareas);
@@ -68,6 +69,24 @@ int main()
     mostrarTareas(TareasRealizadas, cantidadTareas);
     printf("LAS TAREAS PENDIENTES SON: \n");
     mostrarTareas(TareasPendientes, cantidadTareas);
+    /*5. En un nuevo branch implemente una función de búsqueda de tares por nro. de
+    id de nombre BuscarTarea. La misma devuelve la tarea solicitada*/
+    busquedaPorID = buscarTareaID(TareasRealizadas, cantidadTareas);//la funcion busca las tareas realizadas
+    //printf("busquda por id devuelve: %d\n", busquedaPorID);
+    if (!busquedaPorID)
+    {
+        printf("\nLA TAREA SE ENCUENTRA PENDIENTE!!!\n");
+    }
+    else
+    {   
+        printf("\nLA TAREA HA SIDO REALIZADA!!!\n");
+        printf("------------------------------------\n");
+        printf("ID:\t%d\n", busquedaPorID->TareaID);
+        printf("Descripcion:\t%s.\n", busquedaPorID->Descripcion);
+        printf("Duracion:\t%d minutos.\n", busquedaPorID->Duracion);
+        printf("------------------------------------\n");
+    }
+    
     /* FINAL DEL PROGRAMA */
     printf("FINAL DEL PROGRAMA\nPOR FAVOR PRESIONE ENTER PARA SALIR\n");
     getchar();
