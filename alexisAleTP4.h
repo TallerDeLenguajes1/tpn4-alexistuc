@@ -86,25 +86,5 @@ void estadoTareas(TAREA **tareasCargadas, TAREA **tareasRealizadas, int cantidad
         }
     }
 }
-/*
-T_tarea *buscarTareaID(T_tarea **tareas,int cant_tareas)
-{
-    int aux;
-    printf("Ingrese el id de la tarea a buscar\n");
-    scanf("%d",&aux);
-    for (int i = 0; i < cant_tareas; i++)
-    {
-        if (tareas[i] != NULL)  //ES NECESARIA porque no puede comparar el id con el nulo y se rompia el codigo
-        {
-            if (tareas[i]->TareaID == aux)
-            {
-                return tareas[i];
-            }
-        }
-    }
-    return NULL;
-}
-*/
-
 
 #endif
