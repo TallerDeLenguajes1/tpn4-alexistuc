@@ -88,14 +88,14 @@ void estadoTareas(TAREA **tareasCargadas, TAREA **tareasRealizadas, int cantidad
 }
 //5. En un nuevo branch implemente una función de búsqueda de tares por nro. de
 //id de nombre BuscarTarea. La misma devuelve la tarea solicitada
-TAREA *buscarTareaID(TAREA **tareasP, int cantidadDeTareas)//este metodo busca por id las tareas realizadas
+TAREA *buscarTareaID(TAREA **tareasP, int cantidadDeTareas)//este metodo busca por id las tareas
 {
     int auxiliar;//esta variable sirve para ingresar el ID q se quiere buscar
     do
     {
         printf("POR FAVOR INGRESE EL ID DE LA TAREA QUE DESEA BUSCAR:\n");
         scanf("%d",&auxiliar);
-    fflush(stdin); 
+        fflush(stdin); 
     } while (auxiliar > cantidadDeTareas);
     for (int i = 0; i < cantidadDeTareas; i++)
     {
@@ -108,4 +108,26 @@ TAREA *buscarTareaID(TAREA **tareasP, int cantidadDeTareas)//este metodo busca p
     }
     return NULL;
 }
+/*
+6. En el master también Implemente la función BuscarTarea pero la misma tiene
+    que ser por palabra clave (uno le manda una palabra y te tiene que devolver la
+    primera tarea que contenga dicha palabra)
+*/
+TAREA *buscarPorPalabra(TAREA **tareas, int cantidadTareas, char palabraClave[])
+{
+    printf("\nPOR FAVOR INGRESE LA PALABRA CLAVE DE LA DESCRIPCION PARA BUSCAR: \n");
+    gets(palabraClave);
+    fflush(stdin);
+    for (int i = 0; i < cantidadTareas; i++)
+    {
+        if (tareas[i] != NULL)
+        {
+            if (strcmp(tareas[i]->Descripcion, palabraClave) == 0){
+                return tareas[i];
+            }              
+        }
+    }
+    return NULL;
+}
+
 #endif
